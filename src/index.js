@@ -61,7 +61,53 @@ class ChatForm extends React.Component {
 /**
  * メインとなるChatAppコンポーネント
  */
+class ChatApp extends React.Component {
+    // コンストラクター
+    constructor (props) {
+        super (props);
+        // ステート変数の用意
+        this.state = {
+            logs: []
+        }
+    }
+    // コンポーネントがマウントされたタイミングで処理する内容
+    componentDidMount () {
+        // リアルタイムにログを受信するように設定する。
+        socket.on('chat-msg', (obj) => {
+            // ログ用変数を定義する。
+            const log2 = this.state.logs;
+            // 格納用のキーを作成する。
+            obj.key = 'key_' + (this.state.logs.length + 1);
+            // コンソールに出力する。
+            console.log(obj);
+            // 既存ログに追加する。
+            log2.unshift(obj);
+            // ステート変数を更新する。
+            this.setState({ logs: log2 });
+        });
+    }
+    // レンダリングする
+    render () {
+        // ログを一つずつの描画内容を生成する
+        const messages = this.state.logs.map(e => (
+            <div key={e.key} style={styles.log}>
+                <span style={styles.name}>{e.name}</span>
+                <span style={styles.message}>{e.message}</span>
+                <p style={{clear: 'both'}} />
+            </div>
+        ));
 
+        return (
+            <div>
+                <h1 style={styles.h1}>リアルタイムチャット</h1>
+                <ChatForm />
+                <div>
+                    {message}
+                </div>
+            </div>
+        )
+    }
+}
 
 // ChatAppコンポーネントを外部に公開する。
 ReactDOM.render(
