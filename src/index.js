@@ -55,7 +55,7 @@ class ChatForm extends React.Component {
                 <br />
                 <button onClick={e => this.send()}>送信</button>
             </div>
-        );
+        )
     }
 }
 
