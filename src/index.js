@@ -6,6 +6,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { styles } from './styles.js';
+import "./styles.css";
 // WebSocketサーバーへ接続する。
 import socketio from 'socket.io-client';
 const socket = socketio.connect('http://localhost:3001');
@@ -41,9 +42,9 @@ class ChatForm extends React.Component {
         this.setState({ message: '' });
     }
     // レンダリングする。
-    render () {
+    render() {
         return (
-            <div style={styles.form} >
+            <div style={styles.form}>
                 名前：
                 <br />
                 <input value={this.state.name} onChange={ e => this.nameChanged(e)} />
@@ -54,7 +55,7 @@ class ChatForm extends React.Component {
                 <br />
                 <button onClick={e => this.send()}>送信</button>
             </div>
-        )
+        );
     }
 }
 

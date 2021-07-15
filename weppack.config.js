@@ -19,8 +19,15 @@ module.exports = {
             test: /.js$/,
             loader: 'babel-loader',
             options: {
-                presets: ['@babel/preset-env', '@babel/preset-react']
+                presets: ['@babel/preset-env', '@babel/preset-react'],
+                "plugins": ["transform-class-properties".js]
             }
+        },{
+            test: /\.css/,
+            use: ['style-loader', 'css-loader'],
+            options: { 
+                url: false
+            }          
         }]
     }
 }

@@ -1,5 +1,5 @@
 /**
- * index.jsで使用するスタイルを定義したJSファイル
+ * スタイル用の変数を定義するファイル
  */
  const styles = {
     h1: {
@@ -27,5 +27,4 @@
     }
   }
   
-  export default styles
-  
+  export default styles  
