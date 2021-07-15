@@ -5,7 +5,7 @@
 // 必要なモジュールを読み込む
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './styles.js';
+import styles from './styles';
 // WebSocketサーバーへ接続する。
 import socketio from 'socket.io-client';
 const socket = socketio.connect('http://localhost:3001');
