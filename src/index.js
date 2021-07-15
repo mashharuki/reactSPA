@@ -5,7 +5,7 @@
 // 必要なモジュールを読み込む
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './styles';
+import { styles } from './styles.js';
 // WebSocketサーバーへ接続する。
 import socketio from 'socket.io-client';
 const socket = socketio.connect('http://localhost:3001');
@@ -43,7 +43,7 @@ class ChatForm extends React.Component {
     // レンダリングする。
     render () {
         return (
-            <div style={styles.form}>
+            <div style={styles.form} >
                 名前：
                 <br />
                 <input value={this.state.name} onChange={ e => this.nameChanged(e)} />

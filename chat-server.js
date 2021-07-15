@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // Wesocketサーバーを起動する。
 const io = socketio.listen(server);
 // クライアントが接続した時のイベントを定義する。
-io.onconnection('connection', (socket) => {
+io.on('connection', (socket) => {
     console.log('ユーザーが接続', socket.client.id);
     // メッセージ受信時の処理を記述する。
     socket.on('chat-msg', (msg) => {
