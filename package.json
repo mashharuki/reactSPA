@@ -4,7 +4,9 @@
   "description": "Reactを使ったSPA開発用のリポジトリです。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node chat-server.js",
+    "build": "webpack",
+    "watch": "webpack -w"
   },
   "repository": {
     "type": "git",
